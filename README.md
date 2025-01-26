@@ -102,25 +102,40 @@ This script loads the trained model and makes predictions on new data (processed
 ## File Structure
 
 ```
-resume-screening/
+AI-DRIVEN-RECRUITMENT-PIPELINE/
 │
-├── data/
-│   ├── raw_data.xlsx             # Raw dataset for training
-│   └── processed_data.xlsx       # Processed data for training/predictions
+├── Approved_Datasets/            # Raw approved datasets
+│   ├── dataset2.xlsx
+│   ├── dataset3.xlsx
+│   ├── ...
+│   └── dataset9.xlsx
 │
-├── models/
-│   └── xgboost_model.pkl         # Trained model saved with pickle
+├── backup/                       # Backup folder for interim files
 │
-├── scripts/
-│   ├── exploratory_data_analysis.py   # Script for EDA
-│   ├── training.py                  # Script for training the model
-│   ├── resume_screener.py           # Script for preprocessing resumes and transcripts
-│   └── prediction.py                # Script for making predictions and emailing results
+├── Generated_Data/               # Processed and intermediate data
+│   ├── cleaned_data.csv
+│   ├── featured_final_data.csv
+│   └── processed_data.xlsx
 │
-├── requirements.txt                # List of dependencies
-├── README.md                       # Project documentation
-└── output/
-    └── prediction_results.xlsx    # File containing prediction results
+├── models/                       # Saved machine learning models
+│   ├── tfidf_vectorizer.pkl
+│   └── xgboost_model.pkl
+│
+├── output/                       # Prediction outputs
+│   ├── prediction_results.xlsx
+│
+├── Prediction_Data/              # Data used for predictions
+│   └── prediction_data.xlsx
+│
+├── Exploratory_Data_Analysis.py  # Data analysis and visualization
+├── prediction.py                 # Model prediction script
+├── resume_screener.py            # Resume screening logic
+└── training.py                   # Model training pipeline
+│
+├── Exploratory_Data_Analysis.ipynb  # Jupyter Notebook for EDA
+├── LICENSE                          # License for the repository
+└── README.md                        # Project documentation
+
 ```
 
 ## Contributing
