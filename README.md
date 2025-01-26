@@ -99,4 +99,34 @@ This script loads the trained model and makes predictions on new data (processed
 - Saving the predictions to an output Excel file.
 - Sending an email with the results as an attachment.
 
+## File Structure
+resume-screening/
+│
+├── data/
+│   ├── raw_data.xlsx             # Raw dataset for training
+│   └── processed_data.xlsx       # Processed data for training/predictions
+│
+├── models/
+│   └── xgboost_model.pkl         # Trained model saved with pickle
+│
+├── scripts/
+│   ├── exploratory_data_analysis.py   # Script for EDA
+│   ├── training.py                  # Script for training the model
+│   ├── resume_screener.py           # Script for preprocessing resumes and transcripts
+│   └── prediction.py                # Script for making predictions and emailing results
+│
+├── requirements.txt                # List of dependencies
+├── README.md                       # Project documentation
+└── output/
+    └── prediction_results.xlsx    # File containing prediction results
+## Contributing
+If you'd like to contribute to this project, feel free to fork the repository, create a branch, and submit a pull request. You can also submit issues if you find bugs or have suggestions for improvements.
 
+### Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make your changes.
+Commit your changes (git commit -am 'Add new feature').
+Push to the branch (git push origin feature-branch).
+Open a pull request.
+## License
+This project is open-source and available under the MIT License.
