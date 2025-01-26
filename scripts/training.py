@@ -8,7 +8,7 @@ import sklearn
 import warnings
 
 # Load cleaned data
-final_data = pd.read_csv('cleaned_data.csv')
+final_data = pd.read_csv('Generated_Data/cleaned_data.csv')
 print("Data Loaded")
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -394,7 +394,7 @@ final_data.head()
 final_data.columns
 
 # Save Featured Final data
-final_data.to_csv('featured_final_data.csv', index=False)
+final_data.to_csv('Generated_Data/featured_final_data.csv', index=False)
 
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 # Convert the data into a DataFrame
@@ -864,11 +864,11 @@ PartialDependenceDisplay.from_estimator(
 
 
 import pickle
-with open('xgboost_model.pkl', 'wb') as f:
+with open('models/xgboost_model.pkl', 'wb') as f:
     pickle.dump(xgboost_model, f)
 
 import joblib
-joblib.dump(vectorizer, 'tfidf_vectorizer.pkl')
+joblib.dump(vectorizer, 'models/tfidf_vectorizer.pkl')
 
 
 

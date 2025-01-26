@@ -193,21 +193,21 @@ def preprocess_and_analyze_data(prediction_file_path, loaded_vectorizer):
 if __name__ == "__main__":
     # Load the vectorizer
     try:
-        vectorizer = joblib.load('tfidf_vectorizer.pkl')
+        vectorizer = joblib.load('models/tfidf_vectorizer.pkl')
     except FileNotFoundError:
         print("Error: The file 'tfidf_vectorizer.pkl' was not found.")
         exit()
 
-    prediction_file = 'prediction_data.xlsx'
+    prediction_file = 'Prediction_Data/prediction_data.xlsx'
 
     try:
         processed_df, grouped_data = preprocess_and_analyze_data(prediction_file, vectorizer)
         # Save the processed data to an Excel file
-        processed_df.to_excel("processed_data.xlsx", index=False)
+        processed_df.to_excel("Generated_Data/processed_data.xlsx", index=False)
         print("Processing complete. Results saved to 'processed_data.xlsx'.")
         
         print()
-        processed_df = pd.read_excel('processed_data.xlsx')
+        processed_df = pd.read_excel('Generated_Data/processed_data.xlsx')
         print("Columns in processed_data.xlsx:", processed_df.columns)
     except Exception as e:
         print(f"Error: {e}")

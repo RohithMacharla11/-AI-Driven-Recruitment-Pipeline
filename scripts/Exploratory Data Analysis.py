@@ -123,4 +123,4 @@ plt.show()
 
 
 # Save cleaned data
-final_data.to_csv('cleaned_data.csv', index=False)
+final_data.to_csv('Generated_Data/cleaned_data.csv', index=False)

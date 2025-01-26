@@ -63,14 +63,14 @@ def send_email_with_attachment(to_email, subject, body, file_path):
         print(f"Error sending email: {e}")
 
 if __name__ == "__main__":
-    processed_data_file = "processed_data.xlsx"
-    model_file = 'xgboost_model.pkl'
+    processed_data_file = "Generated_Data/processed_data.xlsx"
+    model_file = 'models/xgboost_model.pkl'
 
     # Step 1: Run predictions
     predicted_df = load_model_and_predict(processed_data_file, model_file)
 
     # Save final results to an Excel file
-    output_file = "prediction_results.xlsx"
+    output_file = "output/prediction_results.xlsx"
     predicted_df.to_excel(output_file, index=False)
 
     # Step 2: Email the results
