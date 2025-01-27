@@ -29,38 +29,35 @@ def load_model_and_predict(processed_data_path, model_path):
 
     return processed_df
 
-def send_email_with_attachment(to_email, subject, body, file_path):
-    sender_email = "macharlarohith111@gmai.com"
-    sender_password = "Rohith@999r"  # Use an app password
+def send_email_with_attachment(sender_email, reciever_email, subject, body, file_path):
+    # Create the MIME message
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = reciever_email
+    msg['Subject'] = subject
 
-    # Create MIME structure
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = to_email
-    message["Subject"] = subject
-    message.attach(MIMEText(body, "plain"))
+    # Attach the email body text
+    msg.attach(MIMEText(body, 'plain'))
 
-    # Attach the file
-    try:
-        with open(file_path, "rb") as attachment:
-            part = MIMEBase("application", "octet-stream")
-            part.set_payload(attachment.read())
+    # Attach the Excel file
+    with open(file_path, 'rb') as file:
+        part = MIMEBase('application', 'octet-stream')
+        part.set_payload(file.read())
         encoders.encode_base64(part)
-        part.add_header("Content-Disposition", f"attachment; filename={os.path.basename(file_path)}")
-        message.attach(part)
-    except Exception as e:
-        print(f"Error attaching file: {e}")
-        return
+        part.add_header('Content-Disposition', f'attachment; filename={os.path.basename(file_path)}')
+        msg.attach(part)
 
-    # Send the email
+    # Connect to the SMTP server (Gmail example)
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.send_message(message)
-            print("Email sent successfully with attachment!")
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()  # Start TLS for security
+            # Use the app password instead of the account password
+            server.login(sender_email, "uhql wflt dvsi asvf")
+            server.sendmail(sender_email, reciever_email, msg.as_string())
+            print("Email with attachment has been sent successfully.")
     except Exception as e:
-        print(f"Error sending email: {e}")
+        print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     processed_data_file = "Generated_Data/processed_data.xlsx"
@@ -75,7 +72,8 @@ if __name__ == "__main__":
 
     # Step 2: Email the results
     send_email_with_attachment(
-        to_email="2203a52157@sru.edu.in",
+        sender_email="macharlarohith111@gmail.com",
+        reciever_email = "2203a52157@sru.edu.in",
         subject="Prediction Results",
         body="Please find the attached prediction results.",
         file_path=output_file
