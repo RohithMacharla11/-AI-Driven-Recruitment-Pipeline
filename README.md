@@ -2,6 +2,10 @@
 
 This project is a comprehensive solution designed to revolutionize recruitment processes using AI and data-driven insights. It integrates seamlessly to automate, optimize, and enhance every stage of hiring, from initial candidate screening to final selection.
 
+# Presentation
+This repository contains a PowerPoint presentation detailing the development of an AI-driven recruitment pipeline with real-time interview insights and cultural fit scoring. The project leverages Machine Learning and AI to automate and optimize the hiring process.
+🎯 **View the presentation here:** [Canva Presentation](https://www.canva.com/design/DAGeQDHz53Q/3cVYWZGo-LdQSKC_bDJqfQ/edit?utm_content=DAGeQDHz53Q&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)  
+
 ## Key Features:
 1. **AI-Powered Screening**: Leverage advanced natural language processing and machine learning models to analyze resumes, transcripts, and other applicant data for job relevance and skill matching.
 2. **Real-Time Interview Insights**: Utilize sentiment analysis and keyword tracking to provide actionable feedback during interviews, ensuring a deeper understanding of candidate responses.
